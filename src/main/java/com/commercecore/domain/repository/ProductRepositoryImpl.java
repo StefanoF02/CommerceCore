@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @AllArgsConstructor
 @Repository
 public class ProductRepositoryImpl implements ProductRepository {
@@ -15,13 +17,33 @@ public class ProductRepositoryImpl implements ProductRepository {
     private final EntityManager entityManager;
 
     @Override
-    @Transactional
-    public void saveProduct(Product product){
-        this.entityManager.persist(product);
+    public boolean exists(Integer articleNumber){
+        return findByArtNumber(articleNumber).isPresent();
     }
 
     @Override
-    public Product findByArtNumber(Integer articleNumber) {
-        return this.entityManager.find(Product.class, articleNumber);
+    public boolean exists(Product product){
+        var found = Optional.ofNullable(this.entityManager.find(Product.class, product));
+        if(found.isPresent()){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    @Transactional
+    public void saveOrUpdateProduct(Product product){
+        this.entityManager.merge(product);
+    }
+
+    @Override
+    public Optional<Product> findByArtNumber(Integer articleNumber) {
+        return Optional.ofNullable(this.entityManager.find(Product.class, articleNumber));
+    }
+
+    @Override
+    @Transactional
+    public void deleteProduct(Product product) {
+        entityManager.remove(product);
     }
 }
