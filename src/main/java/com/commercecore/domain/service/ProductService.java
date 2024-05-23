@@ -46,4 +46,18 @@ public class ProductService {
         }
         return HttpStatus.NO_CONTENT;
     }
+
+    private Integer generateArticleNumber(Product product) {
+        Random rand = new Random();
+        int randInt = rand.nextInt(0, 99999999);
+        return switch (product.getCategories()) {
+            case MODE -> 100000000 + randInt;
+            case SPORT -> 200000000 + randInt;
+            case MOEBEL -> 300000000 + randInt;
+            case TECHNIK -> 400000000 + randInt;
+            case SPIELZEUG -> 500000000 + randInt;
+            case MULTIMEDIA -> 600000000 + randInt;
+        };
+
+    }
 }
