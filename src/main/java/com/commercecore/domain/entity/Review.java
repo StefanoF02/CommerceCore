@@ -2,6 +2,8 @@ package com.commercecore.domain.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +22,8 @@ public class Review {
     private Integer id;
 
     @NonNull
+    @ManyToOne
+    @JoinColumn(name = "product_id")
     private Product product;
 
     @NonNull
