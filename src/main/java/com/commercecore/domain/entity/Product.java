@@ -18,6 +18,7 @@ public class Product {
 
     @Id
     private Long articleNumber;
+    //@Range(min = 100000000, max = 999999999, message = "Article number must be between 100000000 and 999999999.")
 
     @NonNull
     private String articleName;
@@ -26,6 +27,7 @@ public class Product {
     private Double price;
 
     @NonNull
+    //@Size(min = 1, max = 9999)
     private String producer;
 
     @NonNull
