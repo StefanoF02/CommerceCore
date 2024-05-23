@@ -1,14 +1,12 @@
 package com.commercecore.domain.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import java.util.List;
-import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,8 +15,8 @@ import java.util.Set;
 public class Product {
 
     @Id
-    private Long articleNumber;
     //@Range(min = 100000000, max = 999999999, message = "Article number must be between 100000000 and 999999999.")
+    private Integer articleNumber;
 
     @NonNull
     private String articleName;
@@ -34,8 +32,10 @@ public class Product {
     private Integer stock;
 
     @NonNull
-    private Set<Category> categories;
+    @Enumerated(EnumType.STRING)
+    private Category categories;
 
+    @OneToMany(mappedBy = "product")
     private List<Review> reviews;
 
 }
