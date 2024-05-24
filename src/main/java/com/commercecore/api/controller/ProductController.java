@@ -2,6 +2,7 @@ package com.commercecore.api.controller;
 
 import com.commercecore.domain.entity.Product;
 import com.commercecore.domain.service.ProductService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class ProductController {
     }
 
     @PatchMapping("/products")
-    public ResponseEntity<Product> updateProduct(@RequestBody Product product){
+    public ResponseEntity<Product> updateProduct(@Valid @RequestBody Product product){
         this.productService.updateProduct(product);
         return new ResponseEntity<Product>(product, HttpStatus.OK);
     }
