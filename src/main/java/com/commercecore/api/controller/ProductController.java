@@ -16,7 +16,7 @@ public class ProductController {
 
     // TODO Validation missing
     @PostMapping("/products")
-    public ResponseEntity<Product> saveProduct(@RequestBody Product product){
+    public ResponseEntity<Product> saveProduct(@Valid @RequestBody Product product){
         this.productService.saveProduct(product);
         return new ResponseEntity<Product>(product,HttpStatus.OK);
     }
