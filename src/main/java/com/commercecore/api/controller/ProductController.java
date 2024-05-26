@@ -28,13 +28,13 @@ public class ProductController {
     }
 
     @GetMapping("/products/{articleNumber}")
-    public ResponseEntity<Product> getProduct(@PathVariable Integer articleNumber){
+    public ResponseEntity<Product> getProduct(@PathVariable Long articleNumber){
         var product = this.productService.findByArtNumber(articleNumber);
         return new ResponseEntity<Product>(product,HttpStatus.OK);
     }
 
     @DeleteMapping("/products/{articleNumber}")
-    public ResponseEntity<HttpStatus> deleteProduct(@PathVariable Integer articleNumber){
+    public ResponseEntity<HttpStatus> deleteProduct(@PathVariable Long articleNumber){
         var product = this.productService.deleteProduct(articleNumber);
         return new ResponseEntity<HttpStatus>(HttpStatus.OK);
     }

@@ -17,7 +17,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     private final EntityManager entityManager;
 
     @Override
-    public boolean exists(Integer articleNumber){
+    public boolean exists(Long articleNumber){
         return findByArtNumber(articleNumber).isPresent();
     }
 
@@ -37,7 +37,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public Optional<Product> findByArtNumber(Integer articleNumber) {
+    public Optional<Product> findByArtNumber(Long articleNumber) {
         return Optional.ofNullable(this.entityManager.find(Product.class, articleNumber));
     }
 

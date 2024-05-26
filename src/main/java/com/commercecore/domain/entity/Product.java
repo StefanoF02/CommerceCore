@@ -20,6 +20,7 @@ public class Product {
     @Id
     @Range(min = 100000000, max = 999999999, message = "Article number must be between 100000000 and 999999999.")
     private Integer articleNumber;
+    private Long articleNumber;
 
     @NonNull
     private String articleName;

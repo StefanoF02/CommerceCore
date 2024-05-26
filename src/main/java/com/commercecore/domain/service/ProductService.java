@@ -26,14 +26,14 @@ public class ProductService {
         this.productRepository.saveOrUpdateProduct(product);
     }
 
-    public Product findByArtNumber(Integer articleNumber) {
+    public Product findByArtNumber(Long articleNumber) {
         return productRepository.findByArtNumber(articleNumber).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND,
                         "Product with article number " + articleNumber + " not found"));
     }
 
 
-    public HttpStatus deleteProduct(Integer articleNumber) {
+    public HttpStatus deleteProduct(Long articleNumber) {
         var product = productRepository.findByArtNumber(articleNumber);
         if (product.isPresent()) {
             productRepository.deleteProduct(product.get());
