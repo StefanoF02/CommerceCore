@@ -8,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Random;
-
 @AllArgsConstructor
 @Service
 public class ProductService {
@@ -17,7 +15,6 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     public void saveProduct(Product product) {
-        product.setArticleNumber(generateArticleNumber(product));
         this.productRepository.saveOrUpdateProduct(product);
     }
 
@@ -45,19 +42,5 @@ public class ProductService {
                     "Product with article number " + articleNumber + " not found");
         }
         return HttpStatus.NO_CONTENT;
-    }
-
-    private Integer generateArticleNumber(Product product) {
-        Random rand = new Random();
-        int randInt = rand.nextInt(0, 99999999);
-        return switch (product.getCategories()) {
-            case MODE -> 100000000 + randInt;
-            case SPORT -> 200000000 + randInt;
-            case MOEBEL -> 300000000 + randInt;
-            case TECHNIK -> 400000000 + randInt;
-            case SPIELZEUG -> 500000000 + randInt;
-            case MULTIMEDIA -> 600000000 + randInt;
-        };
-
     }
 }
