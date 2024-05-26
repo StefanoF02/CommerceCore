@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.hibernate.validator.constraints.Range;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -26,7 +27,6 @@ public class Product {
     @NotNull(message = "Article numberg must not be null.")
     private Long articleNumber;
 
-    @NonNull
     @NotBlank(message = "Article name must not be blank.")
     @NotNull(message = "Article name must not be null.")
     private String articleName;
@@ -37,7 +37,6 @@ public class Product {
 
     @NotBlank(message = "Producer must not be blank.")
     @NonNull
-    //@Size(min = 1, max = 9999)
     private String producer;
 
     @Range(min = 1, message = "Stock must be at least 1.")
