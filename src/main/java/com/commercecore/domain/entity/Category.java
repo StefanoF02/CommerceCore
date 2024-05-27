@@ -2,11 +2,11 @@ package com.commercecore.domain.entity;
 
 
 public enum Category {
-    MODE("MODE"),
-    MOEBEL("MÖBEL"),
-    TECHNIK("TECHNIK"),
+    FASHION("FASHION"),
+    FURNITURE("FURNITURE"),
+    TECH("TECHNOLOGY"),
     SPORT("SPORT"),
-    SPIELZEUG("SPIELZEUG"),
+    TOYS("TOYS"),
     MULTIMEDIA("MULTIMEDIA");
 
     public final String category;
