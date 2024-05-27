@@ -34,7 +34,7 @@ public class Product {
     private Double price;
 
     @NotBlank(message = "Producer must not be blank.")
-    @NonNull
+    @NotNull
     private String producer;
 
     @Range(min = 1, message = "Stock must be at least 1.")
