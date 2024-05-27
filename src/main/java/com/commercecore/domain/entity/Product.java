@@ -50,6 +50,7 @@ public class Product {
     private Currency currency;
 
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "product")
+    @Builder.Default
     private Collection<Review> reviews = new ArrayList<>();
 
 }
