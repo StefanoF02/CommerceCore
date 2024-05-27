@@ -1,8 +1,8 @@
-package com.commercecore.it;
+package com.commercecore.it.products;
 
-import com.commercecore.domain.entity.Category;
 import com.commercecore.domain.entity.Product;
 import com.commercecore.domain.repository.ProductRepository;
+import com.commercecore.it.factories.ProductFactory;
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -12,8 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
-
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -29,25 +27,21 @@ public class ProductCreateIntegrationTest {
     @Autowired
     ProductRepository productRepository;
 
+
     @Rule
-    public PostgreSQLContainer<?> postgresContainer = new PostgreSQLContainer<>("postgres:latest");
+    public PostgreSQLContainer<?> postgresContainer =
+            new PostgreSQLContainer<>("postgres:latest");
 
     @Test
-    void test(){
-        product = Product.builder()
-                .articleNumber(544695585556554L)
-                .articleName("Test")
-                .price(13.3)
-                .producer("Apple")
-                .stock(2)
-                .categories(Category.MODE)
-                .reviews(new ArrayList<>())
-                .build();
+    void saveAndRetrieveProductTest(){
+        //Arrange
+        product = ProductFactory.buildFullProduct();
         productRepository.saveOrUpdateProduct(product);
 
-        var retrievedProduct = productRepository.findByArtNumber(544695585556554L);
+        //Act
+        var retrievedProduct = productRepository.findByArtNumber(product.getArticleNumber());
 
-        System.out.println(retrievedProduct);
+        //Assert
         assertEquals(product, retrievedProduct.get());
 
     }
