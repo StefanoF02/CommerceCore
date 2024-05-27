@@ -14,6 +14,10 @@ public interface ProductRepository {
 
     Optional<Product> findByArtNumber(Long articleNumber);
 
+    List<Product> findAllByProducer(String producer);
+
+    List<Product> findAllByCategories(String category);
+
     void deleteProduct(Product product);
 
 }

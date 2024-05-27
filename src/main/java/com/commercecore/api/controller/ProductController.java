@@ -8,35 +8,43 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @AllArgsConstructor
-@RestController()
+@RestController
+@RequestMapping("/products")
 public class ProductController {
 
     private final ProductService productService;
 
-    // TODO Validation missing
-    @PostMapping("/products")
-    public ResponseEntity<Product> saveProduct(@Valid @RequestBody Product product){
-        this.productService.saveProduct(product);
-        return new ResponseEntity<Product>(product,HttpStatus.OK);
-    }
-
-    @PatchMapping("/products")
-    public ResponseEntity<Product> updateProduct(@Valid @RequestBody Product product){
-        this.productService.updateProduct(product);
-        return new ResponseEntity<Product>(product, HttpStatus.OK);
-    }
-
-    @GetMapping("/products/{articleNumber}")
+    @GetMapping("/{articleNumber}")
     public ResponseEntity<Product> getProduct(@PathVariable Long articleNumber){
         var product = this.productService.findByArtNumber(articleNumber);
-        return new ResponseEntity<Product>(product,HttpStatus.OK);
+        return new ResponseEntity<>(product,HttpStatus.OK);
     }
 
-    @DeleteMapping("/products/{articleNumber}")
+    @GetMapping
+    public ResponseEntity<List<Product>> getProductsByProducer(@RequestParam("producer") String producer){
+        List<Product> productsList = this.productService.findAllByProducer(producer);
+        return new ResponseEntity<>(productsList,HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<Product> saveProduct(@Valid @RequestBody Product product){
+        this.productService.saveProduct(product);
+        return new ResponseEntity<>(product,HttpStatus.OK);
+    }
+
+    @PatchMapping
+    public ResponseEntity<Product> updateProduct(@Valid @RequestBody Product product){
+        this.productService.updateProduct(product);
+        return new ResponseEntity<>(product, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{articleNumber}")
     public ResponseEntity<HttpStatus> deleteProduct(@PathVariable Long articleNumber){
         var product = this.productService.deleteProduct(articleNumber);
-        return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 

@@ -8,9 +8,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Service
 public class ProductService {
+
     @Autowired
     private final ProductRepository productRepository;
 
@@ -32,6 +35,9 @@ public class ProductService {
                         "Product with article number " + articleNumber + " not found"));
     }
 
+    public List<Product> findAllByProducer(String producer){
+        return productRepository.findAllByProducer(producer);
+    }
 
     public HttpStatus deleteProduct(Long articleNumber) {
         var product = productRepository.findByArtNumber(articleNumber);

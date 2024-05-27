@@ -2,11 +2,13 @@ package com.commercecore.domain.repository;
 
 import com.commercecore.domain.entity.Product;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -39,6 +41,19 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public Optional<Product> findByArtNumber(Long articleNumber) {
         return Optional.ofNullable(this.entityManager.find(Product.class, articleNumber));
+    }
+
+    @Override
+    public List<Product> findAllByProducer(String producer) {
+        TypedQuery<Product> query = entityManager.
+                createQuery("FROM Product WHERE producer=:request", Product.class)
+                .setParameter("request", producer);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Product> findAllByCategories(String category) {
+        return List.of();
     }
 
     @Override
