@@ -1,8 +1,6 @@
 package com.commercecore.api.model;
 
 import com.commercecore.domain.entity.Review;
-import com.commercecore.domain.entity.enums.Category;
-import com.commercecore.domain.entity.enums.Currency;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,9 +25,9 @@ public class ProductAo {
 
     private Integer stock;
 
-    private Category categories;
+    private String categories;
 
-    private Currency currency;
+    private String currency;
 
     private Collection<Review> reviews;
 }
