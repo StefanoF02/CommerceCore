@@ -45,6 +45,10 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private Category categories;
 
+    @NotNull(message = "Currency must not be null")
+    @Enumerated(EnumType.STRING)
+    private Currency currency;
+
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "product")
     private Collection<Review> reviews = new ArrayList<>();
 
