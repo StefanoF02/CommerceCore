@@ -1,6 +1,6 @@
 package com.commercecore.it.products;
 
-import com.commercecore.domain.entity.Category;
+import com.commercecore.domain.entity.enums.Category;
 import com.commercecore.domain.entity.Product;
 import com.commercecore.domain.repository.ProductRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;

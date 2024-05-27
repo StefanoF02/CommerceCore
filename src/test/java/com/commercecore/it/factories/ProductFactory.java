@@ -1,7 +1,7 @@
 package com.commercecore.it.factories;
 
-import com.commercecore.domain.entity.Category;
-import com.commercecore.domain.entity.Currency;
+import com.commercecore.domain.entity.enums.Category;
+import com.commercecore.domain.entity.enums.Currency;
 import com.commercecore.domain.entity.Product;
 
 public class ProductFactory {

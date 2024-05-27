@@ -1,4 +1,4 @@
-package com.commercecore.domain.entity;
+package com.commercecore.domain.entity.enums;
 
 
 public enum Category {
