@@ -27,7 +27,7 @@ public class DataLoader implements ApplicationRunner {
                 .articleNumber(544695526556544L)
                 .articleName("Surface Pro")
                 .price(1199.99)
-                .producer("Windows")
+                .producer("Microsoft")
                 .currency(Currency.EURO)
                 .stock(2)
                 .categories(Category.TECH)
@@ -44,9 +44,19 @@ public class DataLoader implements ApplicationRunner {
                 .build();
 
         Product iphone2 = Product.builder()
-                .articleNumber(544695111556544L)
+                .articleNumber(544295111556544L)
                 .articleName("iPhone 12")
                 .price(899.99)
+                .producer("Apple")
+                .currency(Currency.EURO)
+                .stock(30)
+                .categories(Category.TECH)
+                .build();
+
+        Product macBook = Product.builder()
+                .articleNumber(544295111336544L)
+                .articleName("MacBook Air Pro")
+                .price(1599.99)
                 .producer("Apple")
                 .currency(Currency.EURO)
                 .stock(30)
@@ -75,6 +85,8 @@ public class DataLoader implements ApplicationRunner {
 
         productRepository.saveOrUpdateProduct(surface);
         productRepository.saveOrUpdateProduct(iphone);
+        productRepository.saveOrUpdateProduct(iphone2);
+        productRepository.saveOrUpdateProduct(macBook);
         productRepository.saveOrUpdateProduct(shoes);
         productRepository.saveOrUpdateProduct(shoes2);
 
