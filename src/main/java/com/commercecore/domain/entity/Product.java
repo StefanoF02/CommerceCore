@@ -17,6 +17,7 @@ import java.util.Collection;
 @Data
 @Entity
 @Builder
+@Table(name = "products")
 public class Product {
     @Valid
 
@@ -24,30 +25,28 @@ public class Product {
     @Range(min = 100000000000000L,
             max = 999999999999999999L,
             message = "Article number must be at least 15 and a maximum of 19 numbers long.")
-    @NotNull(message = "Article numberg must not be null.")
+    @NotNull(message = "Article number must be set.")
     private Long articleNumber;
 
-    @NotBlank(message = "Article name must not be blank.")
-    @NotNull(message = "Article name must not be null.")
+    @NotBlank(message = "Article name must be set.")
     private String articleName;
 
 
-    @NotNull(message = "Price must not be null.")
+    @NotNull(message = "Price must be set.")
     private Double price;
 
-    @NotBlank(message = "Producer must not be blank.")
-    @NotNull
+    @NotBlank(message = "Producer must be set.")
     private String producer;
 
     @Range(min = 1, message = "Stock must be at least 1.")
-    @NotNull(message = "Stock must not be null.")
+    @NotNull(message = "Stock must be set.")
     private Integer stock;
 
-    @NotNull(message = "Stock must not be null.")
+    @NotNull(message = "Stock must be set.")
     @Enumerated(EnumType.STRING)
     private Category categories;
 
-    @NotNull(message = "Currency must not be null")
+    @NotNull(message = "Currency must be set.")
     @Enumerated(EnumType.STRING)
     private Currency currency;
 
