@@ -1,9 +1,9 @@
-package com.commercecore.api.mapper;
+package com.commercecore.productService.api.mapper;
 
-import com.commercecore.api.model.ProductAo;
-import com.commercecore.domain.entity.Product;
-import com.commercecore.domain.entity.enums.Category;
-import com.commercecore.domain.entity.enums.Currency;
+import com.commercecore.productService.api.model.ProductAo;
+import com.commercecore.productService.entity.Product;
+import com.commercecore.productService.entity.enums.Category;
+import com.commercecore.productService.entity.enums.Currency;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

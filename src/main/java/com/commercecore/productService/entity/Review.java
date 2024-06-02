@@ -1,4 +1,4 @@
-package com.commercecore.domain.entity;
+package com.commercecore.productService.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

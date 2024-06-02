@@ -1,12 +1,13 @@
-package com.commercecore.domain.service;
+package com.commercecore.productService.service;
 
-import com.commercecore.api.mapper.ProductMapper;
-import com.commercecore.api.model.ProductAo;
-import com.commercecore.domain.entity.Product;
-import com.commercecore.domain.repository.ProductRepository;
+import com.commercecore.productService.api.mapper.ProductMapper;
+import com.commercecore.productService.api.model.ProductAo;
+import com.commercecore.productService.entity.Product;
+import com.commercecore.productService.entity.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -22,6 +23,15 @@ public class ProductService {
 
     @Autowired
     private final ProductMapper productMapper;
+
+    @Autowired
+    private final KafkaTemplate<String,String> kafkaTemplate;
+
+    private final String topic = "product_topic";
+
+    public void sendMessage(String message) {
+        kafkaTemplate.send(topic, message);
+    }
 
     public ProductAo saveProduct(Product product) {
         this.productRepository.saveOrUpdateProduct(product);

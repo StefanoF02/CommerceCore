@@ -1,6 +1,6 @@
-package com.commercecore.domain.repository;
+package com.commercecore.productService.entity.repository;
 
-import com.commercecore.domain.entity.Product;
+import com.commercecore.productService.entity.Product;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,7 +1,7 @@
-package com.commercecore.domain.entity;
+package com.commercecore.productService.entity;
 
-import com.commercecore.domain.entity.enums.Category;
-import com.commercecore.domain.entity.enums.Currency;
+import com.commercecore.productService.entity.enums.Category;
+import com.commercecore.productService.entity.enums.Currency;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;

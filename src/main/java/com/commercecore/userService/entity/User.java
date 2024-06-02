@@ -1,4 +1,4 @@
-package com.commercecore.domain.entity;
+package com.commercecore.userService.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

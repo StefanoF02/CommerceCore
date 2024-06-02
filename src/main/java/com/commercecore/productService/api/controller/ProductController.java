@@ -1,8 +1,8 @@
-package com.commercecore.api.controller;
+package com.commercecore.productService.api.controller;
 
-import com.commercecore.api.model.ProductAo;
-import com.commercecore.domain.entity.Product;
-import com.commercecore.domain.service.ProductService;
+import com.commercecore.productService.api.model.ProductAo;
+import com.commercecore.productService.entity.Product;
+import com.commercecore.productService.service.ProductService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

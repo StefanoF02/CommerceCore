@@ -1,7 +1,7 @@
 package com.commercecore.it.products;
 
-import com.commercecore.domain.entity.Product;
-import com.commercecore.domain.repository.ProductRepository;
+import com.commercecore.productService.entity.Product;
+import com.commercecore.productService.entity.repository.ProductRepository;
 import com.commercecore.it.factories.ProductFactory;
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;

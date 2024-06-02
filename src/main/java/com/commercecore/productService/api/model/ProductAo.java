@@ -1,6 +1,6 @@
-package com.commercecore.api.model;
+package com.commercecore.productService.api.model;
 
-import com.commercecore.domain.entity.Review;
+import com.commercecore.productService.entity.Review;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

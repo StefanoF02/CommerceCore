@@ -1,6 +1,6 @@
-package com.commercecore.domain.repository;
+package com.commercecore.productService.entity.repository;
 
-import com.commercecore.domain.entity.Product;
+import com.commercecore.productService.entity.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;

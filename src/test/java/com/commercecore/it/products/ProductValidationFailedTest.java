@@ -1,8 +1,8 @@
 package com.commercecore.it.products;
 
-import com.commercecore.domain.entity.enums.Category;
-import com.commercecore.domain.entity.Product;
-import com.commercecore.domain.repository.ProductRepository;
+import com.commercecore.productService.entity.enums.Category;
+import com.commercecore.productService.entity.Product;
+import com.commercecore.productService.entity.repository.ProductRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;

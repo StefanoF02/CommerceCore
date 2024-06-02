@@ -1,8 +1,8 @@
-package com.commercecore.domain.repository;
+package com.commercecore.productService.entity.repository;
 
-import com.commercecore.domain.entity.Product;
-import com.commercecore.domain.entity.enums.Category;
-import com.commercecore.domain.entity.enums.Currency;
+import com.commercecore.productService.entity.Product;
+import com.commercecore.productService.entity.enums.Category;
+import com.commercecore.productService.entity.enums.Currency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
